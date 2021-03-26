@@ -34,11 +34,7 @@ function mapCreate() {
     SaveButton.disabled = true;
 }
 function saveMap(){
-    let temp = "";
-    for(let i = 0; i < this.MazeGame.Grid.length; i++){
-        let selected = this.MazeGame.Grid[i];
-        temp = temp.concat(JSON.stringify(selected) + "\n");
-    }
+    let temp = JSON.stringify(this.MazeGame.Grid);
     downloadString(temp, "text/txt", "Map.txt");
 }
 function startStop() {
