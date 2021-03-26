@@ -39,7 +39,7 @@ function saveMap(){
         let selected = this.MazeGame.Grid[i];
         temp = temp.concat(JSON.stringify(selected) + "\n");
     }
-    console.log(temp);
+    downloadString(temp, "text/txt", "Map.txt");
 }
 function startStop() {
     Start = !Start;
@@ -136,4 +136,16 @@ function removeWalls(current, next) {
         current.Walls[2] = false;
         next.Walls[0] = false;
     }
+}
+function downloadString(text, fileType, fileName) {
+  var blob = new Blob([text], { type: fileType });
+  var a = document.createElement('a');
+  a.download = fileName;
+  a.href = URL.createObjectURL(blob);
+  a.dataset.downloadurl = [fileType, a.download, a.href].join(':');
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function() { URL.revokeObjectURL(a.href); }, 1500);
 }
