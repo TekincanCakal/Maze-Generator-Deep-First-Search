@@ -59,8 +59,7 @@ function draw() {
         for (let i = 0; i < this.MazeGame.Grid.length; i++) {
             this.MazeGame.Grid[i].show(this.MazeGame.BoxSize);
         }
-    }
-    if (Start) {
+        if (Start) {
         if (frameCount % 60 == 0) {
             Timer[0]++;
             if (Timer[0] == 60) {
@@ -110,6 +109,7 @@ function draw() {
             StartButton.disabled = true;
             SaveButton.disabled = false;
         }
+    }
     }
 }
 
