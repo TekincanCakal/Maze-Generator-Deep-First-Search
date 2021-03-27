@@ -52,9 +52,9 @@ function draw() {
     frameRate(parseInt(Slider.value));
     background(51);
     if(this.MazeGame){
-        for (let i = 0; i < this.MazeGame.Grid.length; i++) {
-            this.MazeGame.Grid[i].show(this.MazeGame.BoxSize);
-        }
+        this.MazeGame.Grid.forEach(cell => {
+            cell.show(this.MazeGame.BoxSize);
+        })
         if (Start) {
         if (frameCount % 60 == 0) {
             Timer[0]++;
@@ -104,6 +104,9 @@ function draw() {
             MapCreateButton.disabled = false;
             StartButton.disabled = true;
             SaveButton.disabled = false;
+            this.MazeGame.Grid.forEach(cell => {
+                cell.Visited = false;
+            })
         }
     }
     }
