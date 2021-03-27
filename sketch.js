@@ -13,7 +13,8 @@ var SaveButton;
 
 function setup() 
 {
-    createCanvas(CanvasSize, CanvasSize);
+    let cnv = createCanvas(CanvasSize, CanvasSize);
+    cnv.parent("canvas"); 
     Start = false;
     Slider = document.getElementById("frameRateSlider");
     SliderText = document.getElementById("frameRateSliderText");
