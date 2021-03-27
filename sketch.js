@@ -103,7 +103,7 @@ function draw()
                 SaveButton.disabled = false;
                 this.MazeGame.Grid.forEach(cell => 
                 {
-                    cell.Visited = false;
+                    cell.Visited = undefined;
                 });
             }
         }
